@@ -1,0 +1,83 @@
+<%- include("partials/header") -%>
+
+</style>
+
+<script type="text/javascript">
+  function show_alert() {
+  alert("Successfully registered");
+}
+</script>
+  </head>
+
+<body style="background-image: url(https://cdn.dribbble.com/users/156849/screenshots/6993098/32.gif);">
+<section id="title">
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+    <a class="navbar-brand" href="">
+    <img src="images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="userlogin">User Login</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="dropdown-item text-muted"><b>Official Login</b></li>
+            <li><a class="dropdown-item" href="policelogin">Police Login</a></li>
+            <li><a class="dropdown-item" href="inchargelogin">Incharge Login</a></li>
+            <li><a class="dropdown-item" href="headlogin">HQ Login</a></li>
+          </ul>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link btn btn-outline-secondary btn-lg" href="registration.php" style="margin-bottom: 10px;">Sign-Up</a>
+  </ul>
+</div>
+</nav>
+
+<!-- <<<<<<<<<<<-----------form------------->
+
+
+<div class="container-fluid" align="center">
+  <br>
+<div class="bg-agile col-lg-4 col-md-9 col-sm-9" style="background-color: #d5dbb3;border-radius: 15px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.29), 0 6px 20px 0 rgba(0, 0, 0, 0.29); " align="left">
+<br>
+<h1 align="center">Sign Up</h1>
+<h4 class="text-muted" align="center">Register a complain now!</h4>
+  <br>
+  <div class="d-grid gap-2 col-9 mx-auto" align="center">
+      <a href="/auth/google" role="button">
+        <button class="btn btn-danger">
+          <i class="fa fa-google-plus" style="padding-right: 10px;"></i>
+          | SignUp with google
+         </button>
+      </a>
+    </div>
+
+  <p style="text-align: center;font-size:20px;">or</p>
+  <form class="" action="/register" method="post" autocomplete="off">
+    <div class="form-group container-fluid col-9">
+      <input type="email" name="username" required="true" class="form-control" placeholder="Email-Id"/>
+      <br>
+      <input type="password" name="password" required="true" class="form-control" placeholder="Password"/>
+      <br>
+    <div class="d-grid gap-2 col-9 mx-auto">
+      <button class="btn btn-dark" type="submit" name="button" style="margin-bottom: 50px">Sign Up</button>
+    </div>
+  </form>
+</div>
+<br>
+
+</div>
+
+</div>

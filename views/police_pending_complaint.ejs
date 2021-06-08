@@ -1,0 +1,85 @@
+<%- include("partials/header") -%>
+
+</style>
+
+</head>
+
+<body style="background-image: url(../images/complainer_page.jpg);">
+
+<section id="title">
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+ <a class="navbar-brand" href="">
+ <img src="../images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+ </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+ <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+<ul class="navbar-nav ms-auto nav-pills">
+ <li class="nav-item">
+     <a class="nav-link" href="/">Home</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link active" href="#">Pending Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="police_complete">Completed Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="logout">Logout &nbsp <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+ </li>
+</ul>
+</div>
+</nav>
+
+</div>
+</section>
+
+<form style="margin-top: 7%; margin-left: 40%;" action="/<%= currentpoliceID %>/police_complain_search" method="post">
+  <input type="text" name="cid" style="width: 250px; background-color:white; color:grey; margin-top:5px;" placeholder="&nbsp Complaint Id" required class="form-control" autocomplete="off">
+    <div>
+  <input class="btn btn-primary" type="submit" value="Search" name="s2" style="margin-top: 10px; margin-left: 11%;">
+    </div>
+</form>
+
+<div style="padding:50px;">
+<table class="table table-bordered">
+<thead class="thead-dark" style="background-color: black; color: white;">
+  <tr>
+    <th scope="col">Complaint Id</th>
+    <th scope="col">Type of Crime</th>
+    <th scope="col">Date of Crime</th>
+    <th scope="col">Location of Crime</th>
+    <th scope="col">Complain Status</th>
+
+  </tr>
+</thead>
+
+<tbody style="background-color: white; color: black;">
+  <%  complainDetails.forEach(function(userComplain){  %>
+ <%   const requestedPolice = userComplain.policeId; %>
+  <%    if(currentpoliceID == requestedPolice){  %>
+<%    if(userComplain.finalStatement == null){  %>
+  <tr>
+      <td><%= userComplain._id %></td>
+      <td><%= userComplain.type %></td>
+      <td><%= userComplain.date %></td>
+      <td><%= userComplain.location %>,<%= userComplain.state %></td>
+      <td><%= userComplain.LatestUpdate %></td>
+
+<%    }  %>
+    <%    } %>
+  <%    });  %>
+
+  </tr>
+</tbody>
+
+</table>
+</div>
+
+
+
+<%- include("partials/footer") -%>

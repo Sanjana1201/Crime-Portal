@@ -1,0 +1,83 @@
+<%- include("partials/header") -%>
+
+</style>
+
+</head>
+
+<body style="background-image: url(../images/complainer_page.jpg);">
+
+<section id="title">
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+ <a class="navbar-brand" href="">
+ <img src="../images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+ </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+ <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+<ul class="navbar-nav ms-auto nav-pills">
+ <li class="nav-item">
+     <a class="nav-link" href="/">Home</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="police_pending_complain">Pending Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link active" href="#">Completed Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="logout">Logout &nbsp <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+ </li>
+</ul>
+</div>
+</nav>
+
+</div>
+</section>
+
+<div style="padding:50px;margin-top:5%;">
+  <table class="table table-bordered">
+   <thead class="thead-dark" style="background-color: black; color: white;">
+     <tr>
+       <th scope="col">Complaint Id</th>
+       <th scope="col">Complainer's aadhar</th>
+       <th scope="col">Type of Crime</th>
+       <th scope="col">Date of Crime</th>
+         <th scope="col">Location of Crime</th>
+
+     </tr>
+   </thead>
+
+
+
+   <tbody style="background-color: white; color: black;">
+       <%  complainDetails.forEach(function(userComplain){  %>
+      <%   const requestedPolice = userComplain.policeId; %>
+       <%    if(currentpoliceID == requestedPolice){  %>
+     <%    if(userComplain.finalStatement != null){  %>
+       <tr>
+           <td><%= userComplain._id %></td>
+           <td><%= userComplain.aadharnumber %></td>
+           <td><%= userComplain.type %></td>
+           <td><%= userComplain.date %></td>
+           <td><%= userComplain.location %>,<%= userComplain.state %></td>
+
+     <%    }  %>
+         <%    } %>
+       <%    });  %>
+
+     </tr>
+   </tbody>
+
+   <?php
+   }
+   ?>
+
+</table>
+</div>
+
+
+<%- include("partials/footer") -%>

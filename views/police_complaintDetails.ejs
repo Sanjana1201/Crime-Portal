@@ -1,0 +1,129 @@
+<%- include("partials/header") -%>
+
+</style>
+
+<script type="text/javascript">
+  function show_alert() {
+  alert("Successfully Updated");
+}
+</script>
+
+
+</head>
+
+<body style="background-image: url(../images/complainer_page.jpg);">
+
+<section id="title">
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+ <a class="navbar-brand" href="">
+ <img src="../images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+ </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+ <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+<ul class="navbar-nav ms-auto nav-pills">
+ <li class="nav-item">
+     <a class="nav-link" href="/">Home</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link active" href="#">Pending Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="police_complete">Completed Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="logout">Logout &nbsp <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+ </li>
+</ul>
+</div>
+</nav>
+
+</div>
+</section>
+
+<div style="padding:50px;">
+<table class="table table-bordered">
+<thead class="thead-dark" style="background-color: black; color: white;">
+  <tr>
+    <th scope="col">Complaint Id</th>
+    <th scope="col">Type of Crime</th>
+    <th scope="col">Date of Crime</th>
+    <th scope="col">Location of Crime</th>
+    <th scope="col">Description</th>
+    <th scope="col">Complainer Mobile</th>
+    <th scope="col">Complainer Address</th>
+
+  </tr>
+</thead>
+
+<tbody style="background-color: white; color: black;">
+  <tr>
+    <td><%= complainId %></td>
+    <td><%= complainType %></td>
+    <td><%= complainDate %></td>
+    <td><%= complainLocation %></td>
+    <td><%= complainDes %></td>
+    <td><%= userMobile %></td>
+    <td><%= userAddress %></td>
+
+  </tr>
+</tbody>
+
+</table>
+</div>
+
+<div style="padding:0 50px 50px 50px;">
+   <table class="table table-bordered">
+        <thead class="thead-dark" style="background-color: black; color: white;">
+    <tr>
+      <th scope="col">Date Of Update</th>
+      <th scope="col">Case Update</th>
+    </tr>
+       </thead>
+       <tbody style="background-color: white; color: black;">
+    <tr>
+      <td><%= updateDate %></td>
+      <td><%= update %></td>
+    </tr>
+       </tbody>
+</table>
+ </div>
+<div class="container-fluid" style="margin-bottom: 50px;">
+  <div class="container-fluid" style="background-color: #d5dbb3;width: 70%;border: solid 10px;border-radius:10px;padding-bottom:50px" align="center">
+    <h1 align="center"> Update the status of this case </h1>
+    <form action="/<%= policeId %>/case_update" method="post" style="width:70%" align="left">
+      <label>Date of Update</label>
+      <input type="date" name="dateOfUpdate" class="form-control" required max=<%= maxdate %>>
+      <br>
+      <label>Update</label>
+      <select class="form-control" name="update" required>
+          <option>Criminal Verified</option>
+          <option>Criminal Caught</option>
+          <option>Criminal Interrogated</option>
+          <option>Criminal Accepted the Crime</option>
+          <option>Criminal Charged</option>
+      </select>
+      <br>
+      <button type="submit" name="button" class="btn btn-dark" value="<%= complainId %>" onclick="show_alert();">Update</button>
+      <br>
+      <h4 align="center">or</h4>
+    </form>
+    <form class="" action="/<%= policeId %>/case_close" method="post" align="left" style="width:70%">
+      <label>Final Report</label>
+      <textarea name="finalReport" rows="3" cols="10" placeholder="Enter final report" class="form-control"></textarea>
+      <br>
+      <button type="submit" name="button" class="btn btn-danger" value="<%= complainId %>" onclick="show_alert();">Close Case</button>
+    </form>
+
+  </div>
+</div>
+<br>
+<br>
+
+
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,111 @@
+<%- include("partials/header") -%>
+
+           .btn-grad {background-image: linear-gradient(to right, #f79d00 0%, #64f38c  51%, #f79d00  100%)}
+           .btn-grad {
+              margin: 10px;
+              padding: 15px 45px;
+              text-align: center;
+              text-transform: uppercase;
+              transition: 0.5s;
+              background-size: 200% auto;
+              color: white;
+              box-shadow: 0 0 20px #eee;
+              border-radius: 10px;
+              display: block;
+            }
+
+            .btn-grad:hover {
+              background-position: right center; /* change the direction of the change here */
+              color: #fff;
+              text-decoration: none;
+            }
+
+
+
+  </style>
+
+
+</head>
+<body style="background-image: url(images/user_login_page_bg.png)">
+
+  <section id="title">
+  <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+      <a class="navbar-brand" href="">
+      <img src="images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+      </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="userlogin">User Login</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="dropdown-item text-muted"><b>Official Login</b></li>
+              <li><a class="dropdown-item" href="policelogin">Police Login</a></li>
+              <li><a class="dropdown-item" href="inchargelogin">Incharge Login</a></li>
+              <li><a class="dropdown-item" href="headlogin">HQ Login</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-lg" href="registration" style="margin-bottom: 10px;">Sign-Up</a>
+    </ul>
+  </div>
+  </nav>
+
+  </div>
+  </section>
+
+
+    <div  align="center">
+   	<div class="form" style="margin-top: 3%" >
+        <img src="images/user_login_logo.png" class="img-fluid rounded-circle" alt="user" style="width: 100px;">
+        <p class="h1" style="color: #fff">User Login</p>
+          	<div class="form col-sm-9 col-md-6 col-lg-4" style="margin-bottom: 12%;background-color: #fff;">
+          		<form method="post" action="/userlogin">
+                <br>
+                <div class="d-grid gap-2 col-9 mx-auto">
+                  <a href="/auth/google" role="button">
+                    <button class="btn btn-danger">
+                      <i class="fa fa-google-plus" style="padding-right: 10px;"></i>
+                      | Sign In with google
+                     </button>
+                  </a>
+                 </div>
+              <h4>or</h4>
+            <div class="form-group input-group" style="width: 90%">
+              <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-user"></i></span>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" size="5" placeholder="Enter Email id" required name="username" onfocusout="f1()">
+               </div>
+
+            <div class="form-group input-group" style="width:90%;margin-bottom: 20px;margin-top: 10px;">
+              <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-lock"></i></span>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required name="password" onfocusout="f1()">
+            </div>
+
+            <!-- <a href="#" class="forget_password" style="text-decoration: none"> Forgot Password? </a> -->
+
+            <div class="d-grid gap-2 col-9 mx-auto">
+             <button type="submit" class="btn btn-grad" name="s">Login</button>
+             </div>
+             <hr class="dropdown-divider" style="width: 70%">
+             <div class="login_message">
+                   <p style="color: #bbbbbb">Don’t have an account ? <a href="registration" style="text-decoration: none"> Sign up </a> </p>
+                   <br>
+             </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,97 @@
+<%- include("partials/header") -%>
+
+</style>
+
+</head>
+
+<body style="background-image: url(../../images/complainer_page.jpg);">
+
+<section id="title">
+<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;padding: 0;">
+ <a class="navbar-brand" href="">
+ <img src="../../images/home_page_logo.png" alt="logo" width="180px" class="img-fluid">
+ </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: 15px;">
+ <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+<ul class="navbar-nav ms-auto nav-pills">
+ <li class="nav-item">
+     <a class="nav-link" href="/">Home</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link active" href="#">View Complaints</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="../incharge_view_police">Police Officers</a>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="logout">Logout &nbsp <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+ </li>
+</ul>
+</div>
+</nav>
+
+</div>
+</section>
+
+
+<div style="padding:50px; margin-top:10px;">
+   <table class="table table-bordered">
+    <thead class="thead-dark" style="background-color: black; color: white;">
+    <tr>
+      <th scope="col">Complaint Id</th>
+      <th scope="col">Type of Crime</th>
+      <th scope="col">Date of Crime</th>
+      <th scope="col">Description</th>
+    </tr>
+       </thead>
+       <tbody style="background-color: white; color: black;">
+    <tr>
+
+      <td><%= complainNumber %></td>
+      <td><%= complainType %></td>
+      <td><%= complainDate %></td>
+      <td><%= complainDescription %></td>
+
+
+    </tr>
+       </tbody>
+   </table>
+</div>
+
+ <div class="col-lg-6 col-md-6 col-sm-12" style="margin: 0 auto">
+  <form action="/<%= complainState %>/assign_police"method="post">
+   <input type="text" name="policeId" value="" placeholder="Enter Police Id from the list below" class="form-control">
+   <button type="submit" name="button" class="btn btn-primary" style="margin: 10px auto;float:right;" value="<%= complainNumber %>">Assign Case</button>
+  </form>
+ </div>
+
+ <div style="padding:50px; margin-top:10px;">
+
+    <table class="table table-bordered">
+     <thead class="thead-dark" style="background-color: black; color: white;">
+     <tr>
+       <th scope="col">Police Id</th>
+       <th scope="col">Police Name</th>
+       <th scope="col">Speciality</th>
+     </tr>
+        </thead>
+        <tbody style="background-color: white; color: black;">
+          <%  policeList.forEach(function(police){ %>
+     <tr>
+       <td><%= police._id %></td>
+       <td><%= police.name %></td>
+       <td><%= police.specialist %></td>
+  <%  });  %>
+
+     </tr>
+        </tbody>
+    </table>
+ </div>
+
+
+<%- include("partials/footer") -%>
